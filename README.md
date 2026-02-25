@@ -13,7 +13,7 @@
 An advanced AI-powered personality analysis and simulation platform designed to model human behavior, traits, and interaction styles.  
 PersonaX enables users to analyze personalities, build custom AI personas, and interact with them in a futuristic environment.
 
-🌐 Live Website: https://your-personax-link.vercel.app/
+🌐 Live Website: https://personax-alpha.vercel.app/
 
 ## ✨ Core Features
 
