@@ -46,7 +46,7 @@ export default function ProfilePage() {
           <p className="text-xl text-gray-400">Manage your PersonaX account</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 items-stretch">
           {/* Profile Card */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -97,7 +97,7 @@ export default function ProfilePage() {
             className="md:col-span-2 space-y-6"
           >
             {/* Account Details */}
-            <div className="glass-panel p-6">
+            <div className="glass-panel p-6 h-full flex flex-col">
               <h3 className="text-2xl font-bold heading-font text-white mb-6">
                 Account Details
               </h3>
@@ -123,48 +123,6 @@ export default function ProfilePage() {
                     <div className="text-white">Premium</div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            {/* Usage Stats */}
-            <div className="glass-panel p-6">
-              <h3 className="text-2xl font-bold heading-font text-white mb-6">
-                Usage Statistics
-              </h3>
-              <div className="grid grid-cols-3 gap-4">
-                <div className="bg-dark-100 rounded-lg p-4 text-center">
-                  <div className="text-3xl font-bold text-primary heading-font mb-2">12</div>
-                  <div className="text-sm text-gray-400">Analyses</div>
-                </div>
-                <div className="bg-dark-100 rounded-lg p-4 text-center">
-                  <div className="text-3xl font-bold text-primary heading-font mb-2">8</div>
-                  <div className="text-sm text-gray-400">Personas</div>
-                </div>
-                <div className="bg-dark-100 rounded-lg p-4 text-center">
-                  <div className="text-3xl font-bold text-primary heading-font mb-2">156</div>
-                  <div className="text-sm text-gray-400">Messages</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Recent Activity */}
-            <div className="glass-panel p-6">
-              <h3 className="text-2xl font-bold heading-font text-white mb-6">
-                Recent Activity
-              </h3>
-              <div className="space-y-3">
-                {[
-                  { action: 'Created persona', name: 'Dr. Sarah Chen', time: '2 hours ago' },
-                  { action: 'Analyzed personality', name: 'John Developer', time: '5 hours ago' },
-                  { action: 'Chat session', name: 'AI Mentor', time: '1 day ago' },
-                ].map((activity, i) => (
-                  <div key={i} className="flex items-center justify-between p-3 bg-dark-100 rounded-lg">
-                    <div>
-                      <div className="text-white">{activity.action}: {activity.name}</div>
-                      <div className="text-sm text-gray-400">{activity.time}</div>
-                    </div>
-                  </div>
-                ))}
               </div>
             </div>
           </motion.div>

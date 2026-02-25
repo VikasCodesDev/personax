@@ -1,3 +1,4 @@
+// lib/activities/createActivity.ts
 import { getActivityModel } from '@/models/Activity';
 
 interface CreateActivityParams {
@@ -7,7 +8,7 @@ interface CreateActivityParams {
   metadata?: any;
 }
 
-export async function createActivity(params: CreateActivityParams) {
+export async function createActivity(params: CreateActivityParams): Promise<void> {
   try {
     const Activity = await getActivityModel();
     
@@ -19,6 +20,5 @@ export async function createActivity(params: CreateActivityParams) {
     });
   } catch (error) {
     console.error('Failed to create activity:', error);
-    // Don't throw - activity logging shouldn't break main functionality
   }
 }

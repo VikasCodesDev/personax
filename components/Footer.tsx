@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Brain, Github, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Brain, Github, Linkedin, Instagram, X } from 'lucide-react';
 
 const footerLinks = [
   { name: 'Analyzer', path: '/analyzer' },
@@ -13,10 +13,10 @@ const footerLinks = [
 ];
 
 const socialLinks = [
-  { icon: Github, href: 'https://github.com', label: 'GitHub' },
-  { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-  { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
+  { icon: Github, href: 'https://github.com/VikasCodesDev', label: 'GitHub' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/vikas-mishra0106', label: 'LinkedIn' },
+  { icon: X, href: 'https://x.com/MishraVika46260', label: 'X' },
+  { icon: Instagram, href: 'https://www.instagram.com/vikas01/?hl=en#', label: 'Instagram' },
 ];
 
 export default function Footer() {
@@ -101,24 +101,19 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-primary/10">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-sm text-gray-400">
-              © {new Date().getFullYear()} PersonaX. All rights reserved.
-            </div>
-            <div className="flex items-center space-x-6 text-sm text-gray-400">
-              <Link href="/privacy" className="hover:text-primary transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="hover:text-primary transition-colors">
-                Terms of Service
-              </Link>
-              <Link href="/about" className="hover:text-primary transition-colors">
-                About
-              </Link>
-            </div>
-          </div>
-        </div>
+        <p className="text-sm text-gray-400">
+        © {new Date().getFullYear()} Crafted with{" "}
+        <span className="text-pink-500 animate-pulse">❤️</span>{" "}
+        and Passion by{" "}
+        <a
+          href="https://www.linkedin.com/in/vikas-mishra0106"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white font-semibold hover:text-pink-400 transition"
+        >
+          Vikas
+        </a>
+      </p>
       </div>
 
       {/* Bottom glow */}

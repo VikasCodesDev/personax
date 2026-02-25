@@ -1,3 +1,4 @@
+// lib/mongoose.ts
 import mongoose from 'mongoose';
 
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -5,6 +6,8 @@ const MONGODB_URI = process.env.MONGODB_URI;
 if (!MONGODB_URI) {
   throw new Error('Please add your MongoDB URI to .env.local as MONGODB_URI');
 }
+
+const URI: string = MONGODB_URI;
 
 interface MongooseCache {
   conn: typeof mongoose | null;
@@ -24,7 +27,7 @@ export async function connectMongoose(): Promise<typeof mongoose> {
   }
 
   if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGODB_URI).then((m) => m);
+    cached.promise = mongoose.connect(URI).then((m) => m);
   }
 
   cached.conn = await cached.promise;
@@ -32,4 +35,3 @@ export async function connectMongoose(): Promise<typeof mongoose> {
 
   return cached.conn;
 }
-

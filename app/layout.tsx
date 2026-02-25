@@ -7,7 +7,7 @@ import NebulaBackground from '@/components/NebulaBackground';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'PersonaX - AI Personality Simulator & Analyzer',
+  title: 'PersonaX',
   description: 'Advanced AI-powered personality analysis and simulation platform',
 };
 

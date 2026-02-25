@@ -1,3 +1,4 @@
+// models/User.ts
 import mongoose, { Schema, Document, Model } from 'mongoose';
 import { connectMongoose } from '@/lib/mongoose';
 
@@ -47,4 +48,3 @@ export async function getUserModel(): Promise<Model<IUser>> {
 }
 
 export default UserModel;
-

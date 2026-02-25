@@ -1,9 +1,11 @@
+// app/api/dashboard/stats/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { getUserFromRequest } from '@/lib/auth/getUserFromRequest';
 import { getAnalysisModel } from '@/models/Analysis';
 import { getMessageModel } from '@/models/Message';
 import { getActivityModel } from '@/models/Activity';
-import { getDatabase } from '@/lib/mongodb';
+import { connectMongoose } from '@/lib/mongoose';
+import mongoose from 'mongoose';
 
 export async function GET(request: NextRequest) {
   try {
@@ -16,15 +18,17 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Get mongoose models for new collections
+    await connectMongoose();
+
     const Analysis = await getAnalysisModel();
     const Message = await getMessageModel();
     const Activity = await getActivityModel();
 
-    // Get MongoDB database for existing personas collection
-    const db = await getDatabase();
+    const db = mongoose.connection.db;
+    if (!db) {
+      throw new Error('Database connection not established');
+    }
 
-    // Fetch counts
     const [analysesCount, personasCount, messagesCount, recentActivities] = await Promise.all([
       Analysis.countDocuments({ userId: authUser.userId }),
       db.collection('personas').countDocuments({ userId: authUser.userId }),
@@ -41,7 +45,7 @@ export async function GET(request: NextRequest) {
         personas: personasCount,
         messages: messagesCount,
       },
-      recentActivities: recentActivities.map(activity => ({
+      recentActivities: recentActivities.map((activity: any) => ({
         id: activity._id.toString(),
         type: activity.type,
         description: activity.description,

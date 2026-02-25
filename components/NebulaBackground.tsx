@@ -1,3 +1,4 @@
+// components/NebulaBackground.tsx
 'use client';
 
 import { useEffect, useRef } from 'react';
@@ -16,13 +17,13 @@ export default function NebulaBackground() {
     let time = 0;
 
     const setCanvasSize = () => {
+      if (!canvas) return;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
     setCanvasSize();
     window.addEventListener('resize', setCanvasSize);
 
-    // Create gradient blobs
     class NebulaBlob {
       x: number;
       y: number;
@@ -32,8 +33,13 @@ export default function NebulaBackground() {
       color: string;
 
       constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+        if (!canvas) {
+          this.x = 0;
+          this.y = 0;
+        } else {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+        }
         this.radius = Math.random() * 200 + 150;
         this.vx = (Math.random() - 0.5) * 0.3;
         this.vy = (Math.random() - 0.5) * 0.3;
@@ -47,6 +53,7 @@ export default function NebulaBackground() {
       }
 
       update() {
+        if (!canvas) return;
         this.x += this.vx;
         this.y += this.vy;
 
@@ -57,7 +64,8 @@ export default function NebulaBackground() {
       }
 
       draw() {
-        const gradient = ctx!.createRadialGradient(
+        if (!ctx) return;
+        const gradient = ctx.createRadialGradient(
           this.x,
           this.y,
           0,
@@ -68,10 +76,10 @@ export default function NebulaBackground() {
         gradient.addColorStop(0, this.color);
         gradient.addColorStop(1, 'rgba(255, 106, 0, 0)');
 
-        ctx!.fillStyle = gradient;
-        ctx!.beginPath();
-        ctx!.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx!.fill();
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fill();
       }
     }
 
@@ -81,19 +89,17 @@ export default function NebulaBackground() {
     }
 
     const animate = () => {
+      if (!canvas || !ctx) return;
       time += 0.005;
 
-      // Fade effect instead of clear
       ctx.fillStyle = 'rgba(10, 10, 10, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Draw and update blobs
       blobs.forEach((blob) => {
         blob.update();
         blob.draw();
       });
 
-      // Add subtle light rays
       ctx.globalAlpha = 0.02;
       for (let i = 0; i < 3; i++) {
         const x = canvas.width / 2 + Math.sin(time + i) * 300;
