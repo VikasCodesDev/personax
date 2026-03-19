@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Brain, Sparkles, MessageCircle, Library, Settings, User, LogIn } from 'lucide-react';
 
 const navItems = [
@@ -49,7 +50,13 @@ export default function NavigationWithAuth() {
                 <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary to-orange-600" />
                 <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary to-orange-600 blur-lg opacity-60" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Brain className="w-6 h-6 text-black relative z-10" />
+                  <Image
+                    src="/logo.png"
+                    alt="PersonaX Logo"
+                    width={24}
+                    height={24}
+                    className="w-6 h-6 object-contain relative z-10"
+                  />
                 </div>
               </motion.div>
               <span className="text-2xl font-bold heading-font bg-gradient-to-r from-white to-primary bg-clip-text text-transparent">

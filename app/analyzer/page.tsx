@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Brain, TrendingUp, Target, Heart, Users } from 'lucide-react';
+import { Sparkles, TrendingUp, Target, Heart, Users } from 'lucide-react';
+import Image from 'next/image';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import PageHeader from '@/components/PageHeader';
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer } from 'recharts';
@@ -149,7 +150,13 @@ export default function AnalyzerPage() {
 
             <div className="glass-panel p-8">
               <h3 className="text-2xl font-bold text-primary mb-4 flex items-center">
-                <Brain className="w-6 h-6 mr-2" /> Summary
+                <Image
+                  src="/logo.png"
+                  alt="PersonaX"
+                  width={24}
+                  height={24}
+                  className="mr-2 object-contain"
+                /> Summary
               </h3>
               <p className="text-gray-300 text-lg leading-relaxed">{analysis.summary}</p>
             </div>

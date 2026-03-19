@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Brain, Github, Linkedin, Instagram, X } from 'lucide-react';
 
 const footerLinks = [
@@ -38,7 +39,13 @@ export default function Footer() {
                 <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary to-orange-600" />
                 <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary to-orange-600 blur-lg opacity-60" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Brain className="w-7 h-7 text-black relative z-10" />
+                  <Image
+                    src="/logo.png"
+                    alt="PersonaX Logo"
+                    width={28}
+                    height={28}
+                    className="w-7 h-7 object-contain relative z-10"
+                  />
                 </div>
               </motion.div>
               <span className="text-3xl font-bold heading-font bg-gradient-to-r from-white to-primary bg-clip-text text-transparent">

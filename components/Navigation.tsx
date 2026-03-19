@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Brain, Sparkles, MessageCircle, Library, Settings } from 'lucide-react';
 
 const navItems = [
@@ -27,7 +28,14 @@ export default function Navigation() {
               whileHover={{ scale: 1.1, rotate: 180 }}
               transition={{ duration: 0.3 }}
             >
-              <Brain className="w-6 h-6 text-white" />
+              <div className="w-8 h-8 relative z-10">
+                <Image
+                  src="/logo.png"
+                  alt="PersonaX Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
             </motion.div>
             <span className="text-2xl font-bold bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent">
               PersonaX

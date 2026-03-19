@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Brain, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import PageHeader from '@/components/PageHeader';
 
@@ -218,7 +219,13 @@ export default function BuilderPage() {
             whileHover={{ scale: loading ? 1 : 1.02 }}
             whileTap={{ scale: loading ? 1 : 0.98 }}
           >
-            <Brain className="w-5 h-5" />
+            <Image
+              src="/logo.png"
+              alt="PersonaX"
+              width={20}
+              height={20}
+              className="mr-2 object-contain"
+            />
             <span>{loading ? 'Creating Persona...' : 'Create Persona'}</span>
           </motion.button>
         </motion.form>

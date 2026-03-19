@@ -9,6 +9,9 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'PersonaX',
   description: 'Advanced AI-powered personality analysis and simulation platform',
+  icons: {
+    icon: '/logo.png',
+  },
 };
 
 export default function RootLayout({
