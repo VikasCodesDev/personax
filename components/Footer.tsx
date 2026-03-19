@@ -17,7 +17,7 @@ const socialLinks = [
   { icon: Github, href: 'https://github.com/VikasCodesDev', label: 'GitHub' },
   { icon: Linkedin, href: 'https://www.linkedin.com/in/vikas-mishra0106', label: 'LinkedIn' },
   { icon: X, href: 'https://x.com/MishraVika46260', label: 'X' },
-  { icon: Instagram, href: 'https://www.instagram.com/vikas01/?hl=en#', label: 'Instagram' },
+  { icon: Instagram, href: 'https://www.instagram.com/vikas01_____?igsh=MW1xNTI2bDBndHBtNQ==', label: 'Instagram' },
 ];
 
 export default function Footer() {
@@ -36,8 +36,8 @@ export default function Footer() {
                 whileHover={{ rotate: 180, scale: 1.1 }}
                 transition={{ duration: 0.4 }}
               >
-                <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary to-orange-600" />
-                <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary to-orange-600 blur-lg opacity-60" />
+                <div className="absolute inset-0 rounded-lg bg-black/80 border border-primary/30" />
+                <div className="absolute inset-0 rounded-lg bg-primary/20 blur-lg opacity-40" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Image
                     src="/logo.png"

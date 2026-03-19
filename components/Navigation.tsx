@@ -24,7 +24,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2 group">
             <motion.div
-              className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-orange-600 flex items-center justify-center"
+              className="w-10 h-10 rounded-lg bg-black/80 border border-primary/30 flex items-center justify-center"
               whileHover={{ scale: 1.1, rotate: 180 }}
               transition={{ duration: 0.3 }}
             >

@@ -45,8 +45,8 @@ export default function FuturisticNavigation() {
                 whileHover={{ scale: 1.1, rotate: 180 }}
                 transition={{ duration: 0.4 }}
               >
-                <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary to-orange-600" />
-                <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary to-orange-600 blur-lg opacity-60" />
+                <div className="absolute inset-0 rounded-lg bg-black/80 border border-primary/30" />
+                <div className="absolute inset-0 rounded-lg bg-primary/20 blur-lg opacity-40" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Image
                     src="/logo.png"
